@@ -18,7 +18,7 @@ const displayData = (categories) => {
      const subMenu = document.getElementById('menu-id-1');
      const menu = document.getElementById('menu-id-2');
      
-     info = info.slice(0,4);
+    //  info = info.slice(0,6);
       
     
      info.forEach(element => {
@@ -44,7 +44,15 @@ const newsDisplay = async(id) =>{
     );
     const data = await res.json();
 
-    // console.log(data.data);
+    // console.log(data.data.length);
+    
+    const noData = document.getElementById('no-data');
+     if (data.data.length === 0) {
+         noData.classList.remove('hidden')
+     }
+     else {
+        noData.classList.add("hidden");
+     }
 
 
     const container = document.getElementById('container');
